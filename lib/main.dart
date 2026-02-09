@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/custom_scroll/custom_scroll_show_case.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/list_grid_showcase.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/sliver_mastery.dart';
+import 'package:flutter_basics_1/pages/animations/explecit_animation.dart';
+import 'package:flutter_basics_1/pages/animations/implecit_animation.dart';
+import 'package:flutter_basics_1/pages/animations/implicit_animations_page.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
 import 'package:flutter_basics_1/pages/basic_widget_1.dart';
 import 'package:flutter_basics_1/pages/basic_widget_3.dart';
@@ -32,6 +35,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SliverMasteryPage());
+    return MaterialApp(home: ImplicitAnimationsPage());
   }
 }
