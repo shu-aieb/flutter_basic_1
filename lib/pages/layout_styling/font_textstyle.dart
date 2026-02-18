@@ -12,24 +12,23 @@ class FontTextStyle extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. ADVANCED HEADLINE (Shadows & Spacing)
             Text(
               "DESIGN",
               style: TextStyle(
                 fontSize: 60,
-                fontWeight: FontWeight.w900, // Extra Bold
+                fontWeight: FontWeight.w900,
                 color: Colors.white,
-                letterSpacing: 4.0, // Spaced out letters
+                letterSpacing: 4.0,
                 shadows: [
                   BoxShadow(
                     color: Colors.blueAccent,
                     offset: Offset(4, 4),
-                    blurRadius: 0, // Sharp shadow (Retro look)
+                    blurRadius: 0,
                   ),
                   BoxShadow(
                     color: Colors.black12,
                     offset: Offset(8, 8),
-                    blurRadius: 10, // Soft shadow
+                    blurRadius: 10,
                   ),
                 ],
               ),
@@ -47,7 +46,6 @@ class FontTextStyle extends StatelessWidget {
 
             Divider(height: 40, thickness: 2),
 
-            // 2. RICH TEXT (Multiple styles in one paragraph)
             Text(
               "RichText & Spans:",
               style: TextStyle(color: Colors.grey, fontSize: 12),

@@ -38,7 +38,6 @@ class BasicWidget3 extends StatelessWidget {
     );
   }
 
-  // Helper method to avoid repeating code (Good practice!)
   Widget featureRow(IconData icon, String title, String sub) {
     return Padding(
       padding: const EdgeInsets.all(12.0),

@@ -11,6 +11,7 @@ import 'package:flutter_basics_1/pages/basic_widget_3.dart';
 import 'package:flutter_basics_1/pages/basic_widget_4.dart';
 import 'package:flutter_basics_1/pages/form_and_validation/complete/personal_info_screen.dart';
 import 'package:flutter_basics_1/pages/form_and_validation/my_form.dart';
+import 'package:flutter_basics_1/home/home.dart';
 import 'package:flutter_basics_1/pages/layout_styling/all_buttons_page.dart';
 import 'package:flutter_basics_1/pages/layout_styling/box_decoration_ui_page.dart';
 import 'package:flutter_basics_1/pages/layout_styling/font_textstyle.dart';
@@ -19,6 +20,8 @@ import 'package:flutter_basics_1/pages/layout_styling/theme_and_color/theme_and_
 import 'package:flutter_basics_1/pages/sample_ui.dart';
 import 'package:flutter_basics_1/pages/sample_ui_2.dart';
 import 'package:flutter_basics_1/pages/selection_controlls.dart';
+import 'package:flutter_basics_1/routes/page_address.dart';
+import 'package:flutter_basics_1/routes/page_routes.dart';
 import 'package:flutter_basics_1/widgets/button_and_icon.dart';
 import 'package:flutter_basics_1/widgets/containers_and_padding.dart';
 import 'package:flutter_basics_1/widgets/rows.dart';
@@ -35,6 +38,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: ImplicitAnimationsPage());
+    return MaterialApp(
+      initialRoute: PageAddress.HOME_PAGE,
+      routes: PageRoutes.routes,
+    );
   }
 }

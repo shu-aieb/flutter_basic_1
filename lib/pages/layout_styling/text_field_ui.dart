@@ -25,7 +25,6 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Tap outside to dismiss keyboard (Pro UX Tip)
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
@@ -46,7 +45,7 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
           body: SingleChildScrollView(
             padding: EdgeInsets.all(24),
             child: Form(
-              key: _formKey, // Assign the key to the Form
+              key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -56,13 +55,10 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
                   ),
                   SizedBox(height: 20),
 
-                  // 1. STANDARD OUTLINE FIELD (Name)
-                  // Shows: basic decoration, prefix icon, capitalization
                   TextFormField(
                     controller: _nameController,
                     autovalidateMode: AutovalidateMode.always,
-                    textCapitalization:
-                        TextCapitalization.words, // Auto-capitalize names
+                    textCapitalization: TextCapitalization.words,
                     decoration: _inputDecoration(
                       "Full Name",
                       Icons.person_outline,
@@ -80,8 +76,6 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
 
                   SizedBox(height: 20),
 
-                  // 2. EMAIL FIELD (Keyboard Type)
-                  // Shows: keyboardType emailAddress
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     autovalidateMode: AutovalidateMode.values.last,
@@ -102,8 +96,6 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
 
                   SizedBox(height: 20),
 
-                  // 3. PHONE FIELD (Prefix Text)
-                  // Shows: prefixText for country code
                   Focus(
                     onFocusChange: (hasFocus) {
                       setState(() {
@@ -116,7 +108,7 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
                       decoration: _inputDecoration(
                         "Phone Number",
                         phoneIcon,
-                      ).copyWith(prefixText: "+880  "), // Appending style
+                      ).copyWith(prefixText: "+880  "),
                       validator: ((value) {
                         if (value != null && value.length < 11) {
                           return "Enter a valid phone number";
@@ -136,8 +128,6 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
                   ),
                   SizedBox(height: 20),
 
-                  // 4. PASSWORD FIELD (Obscure Text & Suffix Icon)
-                  // Shows: State management (setState) to toggle visibility
                   TextFormField(
                     obscureText: !_isPasswordVisible,
                     autovalidateMode: AutovalidateMode.onUnfocus,
@@ -156,8 +146,7 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
                               });
                             },
                           ),
-                          helperText:
-                              "Must be at least 8 characters", // Helper text below field
+                          helperText: "Must be at least 8 characters",
                         ),
                     validator: (value) {
                       if (value != null && value.length < 8) {
@@ -205,7 +194,6 @@ class _TextFieldUIPageState extends State<TextFieldUIPage> {
                         ),
                       ),
                       onPressed: () {
-                        // Triggers all validators in the form
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(

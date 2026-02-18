@@ -8,12 +8,8 @@ class SliverMasteryPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       // CustomScrollView is the specific ScrollView that allows "Slivers" (scrollable fragments)
-      // to work together as one cohesive physical scrolling unit.
       body: CustomScrollView(
         slivers: [
-          // -----------------------------------------------------------------
-          // 1. THE APP BAR (Collapsing Header)
-          // -----------------------------------------------------------------
           SliverAppBar(
             expandedHeight: 250.0, // How tall it is when fully open
             pinned:
@@ -41,11 +37,6 @@ class SliverMasteryPage extends StatelessWidget {
             actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
           ),
 
-          // -----------------------------------------------------------------
-          // 2. THE ADAPTER (Bridge for Normal Widgets)
-          // -----------------------------------------------------------------
-          // Slivers only understand other Slivers. You cannot put a 'Container'
-          // directly here. You must wrap it in SliverToBoxAdapter.
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(20.0),

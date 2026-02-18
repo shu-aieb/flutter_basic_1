@@ -29,9 +29,6 @@ class _ExplicitAnimationPageState extends State<ExplicitAnimationPage>
       duration: Duration(seconds: 2),
     );
 
-    // 4. STAGGERED ANIMATIONS (Intervals)
-    // The controller goes from 0.0 to 1.0. We split that time up.
-
     // PHASE 1: Squeeze Button (0% to 30% of time)
     _squeezeAnimation = Tween<double>(begin: 250.0, end: 60.0).animate(
       CurvedAnimation(

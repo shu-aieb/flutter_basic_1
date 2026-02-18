@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 AppBar myAppBar({required String title}) {
   return AppBar(
     title: Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.only(top: 20.0, bottom: 20),
       child: Text(
-        'Create Account',
+        title,
         style: GoogleFonts.playwritePt(
           color: Colors.blue,
           fontWeight: FontWeight.bold,
-          fontSize: 30,
+          fontSize: 25,
         ),
       ),
     ),
