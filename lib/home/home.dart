@@ -118,6 +118,21 @@ class HomePage extends StatelessWidget {
         ),
       ],
     ),
+    Section(
+      title: 'Firebase Services',
+      topics: [
+        Topic(
+          title: 'Firebase Authentication',
+          subTitle: 'Page',
+          pageRoute: PageAddress.FIREBASE_AUTH,
+        ),
+        Topic(
+          title: 'Cloud Firestore (CRUD)',
+          subTitle: 'Page',
+          pageRoute: PageAddress.CLOUD_FIRESTORE,
+        ),
+      ],
+    ),
   ];
 
   @override
@@ -213,11 +228,9 @@ class _SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     return Container(
-      color: Colors
-          .white, // Background color is needed so content doesn't show through
+      color: Colors.white,
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.symmetric(horizontal: 20),
-      // Adding a shadow that appears only when it's "stuck" at the top can be done here logic-wise
       child: Text(
         title,
         style: TextStyle(
@@ -231,13 +244,13 @@ class _SectionHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 60.0; // Height when fully visible
+  double get maxExtent => 60.0;
 
   @override
-  double get minExtent => 60.0; // Height when stuck at top
+  double get minExtent => 60.0;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false; // No need to rebuild if nothing changes
+    return false;
   }
 }

@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basics_1/firebase_options.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/custom_scroll/custom_scroll_show_case.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/list_grid_showcase.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/sliver_mastery.dart';
@@ -27,10 +29,20 @@ import 'package:flutter_basics_1/widgets/containers_and_padding.dart';
 import 'package:flutter_basics_1/widgets/rows.dart';
 import 'package:flutter_basics_1/widgets/stateful_test.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+/*
+Platform  Firebase App Id
+web       1:941317230359:web:17a4ab4c06d79aeffbf152
+android   1:941317230359:android:09b970dbe0ca1fddfbf152
+ios       1:941317230359:ios:dd73ca84b6fc00d2fbf152
+macos     1:941317230359:ios:dd73ca84b6fc00d2fbf152
+windows   1:941317230359:web:16305c4b69659ac1fbf152
+ */
 
-  runApp(MaterialApp(home: Home()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  runApp(Home());
 }
 
 class Home extends StatelessWidget {

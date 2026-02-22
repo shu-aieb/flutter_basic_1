@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_basics_1/firebase/cloud_store/pages/firestore_crud_page.dart';
+import 'package:flutter_basics_1/firebase/wrapper.dart';
 import 'package:flutter_basics_1/home/home.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
 import 'package:flutter_basics_1/pages/basic_widget_1.dart';
@@ -37,5 +39,7 @@ class PageRoutes {
     PageAddress.CHECKBOX_RADIO_SWITCH: (context) => SelectionControlsPage(),
     PageAddress.FORM_VALIDATION: (context) => PersonalInfoScreen(),
     PageAddress.REUSABLE_WIDGET_PAGE: (context) => ReusableWidgetPage(),
+    PageAddress.FIREBASE_AUTH: (context) => Wrapper(),
+    PageAddress.CLOUD_FIRESTORE: (context) => FirestoreCrudPage(),
   };
 }

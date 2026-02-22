@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Enum for Radio Button
 enum DownloadQuality { low, medium, high }
 
 class SelectionControlsPage extends StatefulWidget {
@@ -11,16 +10,13 @@ class SelectionControlsPage extends StatefulWidget {
 }
 
 class _SelectionControlsPageState extends State<SelectionControlsPage> {
-  // 1. SWITCH STATE (Toggles)
   bool _notificationsEnabled = true;
   bool _biometricsEnabled = false;
 
-  // 2. CHECKBOX STATE (Multiple Selections)
   bool _emailUpdates = true;
   bool _smsUpdates = false;
   bool _termsAccepted = false;
 
-  // 3. RADIO STATE (Single Selection)
   DownloadQuality _selectedQuality = DownloadQuality.medium;
 
   @override
@@ -43,7 +39,6 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // SECTION 1: SWITCHES (Instant Toggles)
             _sectionHeader("System Settings (Switch)"),
             Card(
               elevation: 2,
@@ -52,7 +47,6 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
               ),
               child: Column(
                 children: [
-                  // Basic SwitchListTile
                   SwitchListTile(
                     title: Text("Push Notifications"),
                     subtitle: Text("Receive alerts instantly"),
@@ -61,13 +55,12 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
                       color: Colors.blue,
                     ),
                     value: _notificationsEnabled,
-                    activeColor: Colors.blue, // Thumb color when ON
+                    activeColor: Colors.blue,
                     onChanged: (bool value) {
                       setState(() => _notificationsEnabled = value);
                     },
                   ),
                   Divider(height: 1),
-                  // Adaptive Switch (Changes look based on iOS vs Android)
                   SwitchListTile.adaptive(
                     title: Text("Biometric Login"),
                     subtitle: Text("Use FaceID or Fingerprint"),
@@ -83,8 +76,6 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
             ),
 
             SizedBox(height: 25),
-
-            // SECTION 2: CHECKBOXES (Multiple Choice)
             _sectionHeader("Subscriptions (Checkbox)"),
             Card(
               elevation: 2,
@@ -96,8 +87,7 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
                   CheckboxListTile(
                     title: Text("Email Newsletter"),
                     value: _emailUpdates,
-                    controlAffinity:
-                        ListTileControlAffinity.leading, // Box on the left
+                    controlAffinity: ListTileControlAffinity.leading,
                     activeColor: Colors.teal,
                     onChanged: (bool? value) {
                       setState(() => _emailUpdates = value!);
@@ -112,7 +102,6 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
                       setState(() => _smsUpdates = value!);
                     },
                   ),
-                  // Standalone Row Example (Manual Layout)
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16.0,
@@ -120,7 +109,6 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
                     ),
                     child: Row(
                       children: [
-                        // Custom Checkbox shape
                         Checkbox(
                           value: _termsAccepted,
                           shape: RoundedRectangleBorder(
@@ -151,7 +139,6 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
 
             SizedBox(height: 25),
 
-            // SECTION 3: RADIO BUTTONS (Single Choice)
             _sectionHeader("Download Quality (Radio)"),
             Card(
               elevation: 2,
@@ -163,9 +150,8 @@ class _SelectionControlsPageState extends State<SelectionControlsPage> {
                   RadioListTile<DownloadQuality>(
                     title: Text("Low Quality"),
                     subtitle: Text("Save data (128kbps)"),
-                    value: DownloadQuality.low, // The identity of this row
-                    groupValue:
-                        _selectedQuality, // The currently selected value
+                    value: DownloadQuality.low,
+                    groupValue: _selectedQuality,
                     onChanged: (DownloadQuality? value) {
                       setState(() => _selectedQuality = value!);
                     },

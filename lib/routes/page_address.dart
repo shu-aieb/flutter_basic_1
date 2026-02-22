@@ -14,5 +14,7 @@ class PageAddress {
   static const String CHECKBOX_RADIO_SWITCH = '/checkbox_radio_switch';
   static const String FORM_VALIDATION = '/form_validation';
 
+  static const String FIREBASE_AUTH = '/firebase_auth';
+  static const String CLOUD_FIRESTORE = '/cloud_firestore';
   static const String REUSABLE_WIDGET_PAGE = '/reusable_widget_page';
 }
