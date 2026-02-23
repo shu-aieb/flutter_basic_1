@@ -27,7 +27,6 @@ class _NotesScreenState extends State<NotesScreen> {
 
   Future<void> fetchNotes() async {
     final notes = await NotesDatabase.instance.getNotes();
-    //print("UI DEBUG: Found ${notes.length} notes in DB");
     setState(() {
       this.notes = notes;
     });

@@ -19,11 +19,17 @@ class DatabaseFunctions {
   Future<void> updateSomething({
     required String colName,
     docName,
-    field,
-    required var newFieldVal,
+    name,
+    animal,
+    required int age,
   }) async {
+    // await FirebaseFirestore.instance.collection(colName).doc(docName).update({
+    //   field: newFieldVal,
+    // });
     await FirebaseFirestore.instance.collection(colName).doc(docName).update({
-      field: newFieldVal,
+      'name': name,
+      'animal': animal,
+      'age': age,
     });
     print('Database updated new field value');
   }

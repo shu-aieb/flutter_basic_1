@@ -46,7 +46,6 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
     );
   }
 
-  // Helper method to keep code clean and consistent
   InputDecoration _inputDecoration(String label, IconData icon) {
     return InputDecoration(
       labelText: label,
@@ -69,10 +68,7 @@ class _MyTextFormFieldState extends State<MyTextFormField> {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(5),
-        borderSide: BorderSide(
-          color: Colors.blueAccent,
-          width: 2,
-        ), // Thick blue border when focused
+        borderSide: BorderSide(color: Colors.blueAccent, width: 2),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(5),
