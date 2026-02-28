@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basics_1/firebase/authentication/model/firebase_auth_viewmodel.dart';
+import 'package:flutter_basics_1/firebase/authentication/viewmodel/firebase_auth_viewmodel.dart';
 
 class FirebaseAuthPage extends StatefulWidget {
   FirebaseAuthPage({super.key});
@@ -56,35 +56,20 @@ class _FirebaseAuthPageState extends State<FirebaseAuthPage> {
                   TextFormField(
                     controller: _usernameController,
                     decoration: InputDecoration(labelText: 'Username'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter your username';
-                      }
-                      return null;
-                    },
+                    validator: (value) => viewModel.validateUsername(value),
                     onSaved: (value) => username = _usernameController.text,
                   ),
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(labelText: 'Email'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    return null;
-                  },
+                  validator: (value) => viewModel.validateEmail(value),
                   onSaved: (value) => email = _emailController.text,
                 ),
                 TextFormField(
                   controller: _passwordController,
                   decoration: InputDecoration(labelText: 'Password'),
                   obscureText: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
+                  validator: (value) => viewModel.validatePassword(value),
                   onSaved: (value) => password = _passwordController.text,
                 ),
                 SizedBox(height: 20),
@@ -101,6 +86,26 @@ class _FirebaseAuthPageState extends State<FirebaseAuthPage> {
                   child: Text(isLogin ? 'Login' : 'Sign Up'),
                 ),
                 SizedBox(height: 20),
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(color: Colors.grey),
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      viewModel.loginWithGoogle();
+                    },
+                    child: Row(
+                      children: [
+                        Image.asset('assets/images/google.png', height: 30),
+                        Text('Continue with Facebook'),
+                      ],
+                    ),
+                  ),
+                ),
                 TextButton(
                   onPressed: () => setState(() => isLogin = !isLogin),
                   child: Text(

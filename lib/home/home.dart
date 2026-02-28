@@ -131,6 +131,16 @@ class HomePage extends StatelessWidget {
           subTitle: 'Page',
           pageRoute: PageAddress.CLOUD_FIRESTORE,
         ),
+        Topic(
+          title: 'Realtime Database',
+          subTitle: 'Page',
+          pageRoute: PageAddress.REALTIME_DATABASE,
+        ),
+        Topic(
+          title: 'Storage',
+          subTitle: 'page',
+          pageRoute: PageAddress.CLOUD_STORAGE,
+        ),
       ],
     ),
   ];
@@ -155,8 +165,9 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               centerTitle: true,
-              background: Image.network(
-                'https://picsum.photos/id/1/800/600',
+              background: Image.asset(
+                //'https://picsum.photos/id/1/800/600',
+                'assets/images/pexels-laptop.jpg',
                 fit: BoxFit.cover,
                 color: Colors.black45,
                 colorBlendMode: BlendMode.darken,
@@ -166,7 +177,7 @@ class HomePage extends StatelessWidget {
 
           for (var section in topic_dir) ...[
             SliverPersistentHeader(
-              pinned: true,
+              pinned: false,
               delegate: _SectionHeaderDelegate(title: section.title),
             ),
 

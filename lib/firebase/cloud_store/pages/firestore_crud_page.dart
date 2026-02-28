@@ -136,6 +136,10 @@ class _FirestoreCrudPageState extends State<FirestoreCrudPage> {
                                 age: int.parse(_ageController.text),
                               );
 
+                              _nameController.clear();
+                              _animalController.clear();
+                              _ageController.clear();
+
                               // await dbFunctions.createSomething(
                               //   colName: 'pets',
                               //   docName: 'kitty',
@@ -308,7 +312,10 @@ class _FirestoreCrudPageState extends State<FirestoreCrudPage> {
           SizedBox(height: 8),
           Divider(),
           SizedBox(height: 5),
-          Flexible(flex: 8, child: PetsPage(dbFunc: dbFunctions)),
+          Flexible(
+            flex: 8,
+            child: PetsPage(dbFunc: dbFunctions, petController: petController),
+          ),
         ],
       ),
     );

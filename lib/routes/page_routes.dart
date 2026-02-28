@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_basics_1/firebase/cloud_store/pages/firestore_crud_page.dart';
+import 'package:flutter_basics_1/firebase/firebase_storage/cloud_vault_screen.dart';
+import 'package:flutter_basics_1/firebase/push_notification/pages/notification_page.dart';
+import 'package:flutter_basics_1/firebase/realtime_database/page/auction_screen.dart';
 import 'package:flutter_basics_1/firebase/wrapper.dart';
 import 'package:flutter_basics_1/home/home.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
@@ -41,5 +44,8 @@ class PageRoutes {
     PageAddress.REUSABLE_WIDGET_PAGE: (context) => ReusableWidgetPage(),
     PageAddress.FIREBASE_AUTH: (context) => Wrapper(),
     PageAddress.CLOUD_FIRESTORE: (context) => FirestoreCrudPage(),
+    PageAddress.REALTIME_DATABASE: (context) => AuctionScreen(),
+    PageAddress.CLOUD_STORAGE: (context) => CloudVaultScreen(),
+    PageAddress.NOTIFICATION: (context) => NotificationPage(),
   };
 }

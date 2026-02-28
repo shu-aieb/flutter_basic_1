@@ -2,11 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../model/database_functions.dart';
+import '../viewmodel/pets_controller.dart';
 import '../widgets/reusable_widget.dart';
 
 class PetsPage extends StatefulWidget {
   DatabaseFunctions dbFunc;
-  PetsPage({super.key, required this.dbFunc});
+  PetsPage({super.key, required this.dbFunc, required this.petController});
+
+  PetsController petController;
 
   @override
   State<PetsPage> createState() => _PetsPageState();
@@ -89,7 +92,11 @@ class _PetsPageState extends State<PetsPage> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
       ),
       backgroundColor: Colors.transparent,
-      builder: (context) => AnimalDetailSheet(dbFunctions: dbFunc, docs: docs),
+      builder: (context) => AnimalDetailSheet(
+        dbFunctions: dbFunc,
+        docs: docs,
+        petController: widget.petController,
+      ),
     );
   }
 }

@@ -16,5 +16,8 @@ class PageAddress {
 
   static const String FIREBASE_AUTH = '/firebase_auth';
   static const String CLOUD_FIRESTORE = '/cloud_firestore';
+  static const String REALTIME_DATABASE = '/realtime_database';
   static const String REUSABLE_WIDGET_PAGE = '/reusable_widget_page';
+  static const String CLOUD_STORAGE = '/cloud_storage';
+  static const String NOTIFICATION = '/notification';
 }

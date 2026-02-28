@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_basics_1/firebase/authentication/model/google_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class MyFirebaseAuth {
   static MyFirebaseAuth? _instance;
@@ -9,6 +11,8 @@ class MyFirebaseAuth {
     _instance ??= MyFirebaseAuth._internal();
     return _instance!;
   }
+
+  GoogleAuth googleAuth = GoogleAuth();
 
   Stream<User?> get authStateChanges =>
       FirebaseAuth.instance.authStateChanges();
@@ -62,5 +66,6 @@ class MyFirebaseAuth {
 
   Future<void> logOut() async {
     await FirebaseAuth.instance.signOut();
+    await googleAuth.signOutFromGoogle();
   }
 }
