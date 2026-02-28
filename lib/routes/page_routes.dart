@@ -5,6 +5,8 @@ import 'package:flutter_basics_1/firebase/push_notification/pages/notification_p
 import 'package:flutter_basics_1/firebase/realtime_database/page/auction_screen.dart';
 import 'package:flutter_basics_1/firebase/wrapper.dart';
 import 'package:flutter_basics_1/home/home.dart';
+import 'package:flutter_basics_1/pages/animations/explicit_animation_page.dart';
+import 'package:flutter_basics_1/pages/animations/implicit_animations_page.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
 import 'package:flutter_basics_1/pages/basic_widget_1.dart';
 import 'package:flutter_basics_1/pages/basic_widget_3.dart';
@@ -21,6 +23,8 @@ import 'package:flutter_basics_1/routes/page_address.dart';
 import 'package:flutter_basics_1/sqflite_note_app/screens/notes_screen.dart';
 import 'package:path/path.dart';
 
+import '../pages/animations/custom_animation.dart';
+import '../pages/animations/hero_animations.dart';
 import '../pages/code_quality/reusable_widget/reusable_widget_page.dart';
 import '../pages/selection_controlls.dart';
 
@@ -47,5 +51,10 @@ class PageRoutes {
     PageAddress.REALTIME_DATABASE: (context) => AuctionScreen(),
     PageAddress.CLOUD_STORAGE: (context) => CloudVaultScreen(),
     PageAddress.NOTIFICATION: (context) => NotificationPage(),
+
+    PageAddress.EXPLECIT_ANIMATION: (context) => ExplicitAnimationPage(),
+    PageAddress.IMPLICIT_ANIMATION: (context) => ImplicitAnimationsPage(),
+    PageAddress.CUSTOM_ANIMATION: (context) => CustomPainterPage(),
+    PageAddress.HERO_ANIMATION: (context) => HeroAnimationPage(),
   };
 }

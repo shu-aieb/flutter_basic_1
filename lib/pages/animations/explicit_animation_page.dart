@@ -37,7 +37,6 @@ class _ExplicitAnimationPageState extends State<ExplicitAnimationPage>
       ),
     );
 
-    // PHASE 2: Color Change (30% to 60%)
     _colorAnimation = ColorTween(begin: Colors.blue[900], end: Colors.green)
         .animate(
           CurvedAnimation(
@@ -46,8 +45,6 @@ class _ExplicitAnimationPageState extends State<ExplicitAnimationPage>
           ),
         );
 
-    // PHASE 3: Checkmark Pop (60% to 100%)
-    // ElasticOut creates that "Boing" bounce effect
     _scaleCheckAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _controller,
@@ -55,7 +52,6 @@ class _ExplicitAnimationPageState extends State<ExplicitAnimationPage>
       ),
     );
 
-    // Optional: Reset when finished for demo purposes
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // Maybe navigate to next screen?
@@ -65,16 +61,15 @@ class _ExplicitAnimationPageState extends State<ExplicitAnimationPage>
 
   @override
   void dispose() {
-    _controller
-        .dispose(); // CRITICAL: Always dispose controllers to stop memory leaks
+    _controller.dispose();
     super.dispose();
   }
 
   void _startAnimation() {
     if (_controller.isCompleted) {
-      _controller.reverse(); // Go back to start
+      _controller.reverse();
     } else {
-      _controller.forward(); // Play animation
+      _controller.forward();
     }
   }
 
@@ -129,8 +124,6 @@ class _ExplicitAnimationPageState extends State<ExplicitAnimationPage>
                       ],
                     ),
                     child: Center(
-                      // 7. CONDITIONAL CONTENT
-                      // If width is wide (> 75), show Text. If narrow, show Checkmark.
                       child: _squeezeAnimation.value > 75.0
                           ? Text(
                               "PAY NOW",

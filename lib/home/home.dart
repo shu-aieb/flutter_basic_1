@@ -99,6 +99,31 @@ class HomePage extends StatelessWidget {
       ],
     ),
     Section(
+      title: 'Animaiton',
+      topics: [
+        Topic(
+          title: 'Implicit Animation',
+          subTitle: 'Page',
+          pageRoute: PageAddress.IMPLICIT_ANIMATION,
+        ),
+        Topic(
+          title: 'Explicit Animation',
+          subTitle: 'Page',
+          pageRoute: PageAddress.EXPLECIT_ANIMATION,
+        ),
+        Topic(
+          title: 'Hero Animation',
+          subTitle: 'Page',
+          pageRoute: PageAddress.HERO_ANIMATION,
+        ),
+        Topic(
+          title: 'Custom Animation',
+          subTitle: 'Page',
+          pageRoute: PageAddress.CUSTOM_ANIMATION,
+        ),
+      ],
+    ),
+    Section(
       title: 'Navigation & Routing',
       topics: [
         Topic(
@@ -136,11 +161,11 @@ class HomePage extends StatelessWidget {
           subTitle: 'Page',
           pageRoute: PageAddress.REALTIME_DATABASE,
         ),
-        Topic(
-          title: 'Storage',
-          subTitle: 'page',
-          pageRoute: PageAddress.CLOUD_STORAGE,
-        ),
+        // Topic(
+        //   title: 'Storage',
+        //   subTitle: 'page',
+        //   pageRoute: PageAddress.CLOUD_STORAGE,
+        // ),
       ],
     ),
   ];

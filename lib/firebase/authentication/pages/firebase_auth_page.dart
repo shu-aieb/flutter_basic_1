@@ -43,78 +43,83 @@ class _FirebaseAuthPageState extends State<FirebaseAuthPage> {
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  isLogin ? 'Login' : 'Sign Up',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 20),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    isLogin ? 'Login' : 'Sign Up',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20),
 
-                if (!isLogin)
+                  if (!isLogin)
+                    TextFormField(
+                      controller: _usernameController,
+                      decoration: InputDecoration(labelText: 'Username'),
+                      validator: (value) => viewModel.validateUsername(value),
+                      onSaved: (value) => username = _usernameController.text,
+                    ),
                   TextFormField(
-                    controller: _usernameController,
-                    decoration: InputDecoration(labelText: 'Username'),
-                    validator: (value) => viewModel.validateUsername(value),
-                    onSaved: (value) => username = _usernameController.text,
+                    controller: _emailController,
+                    decoration: InputDecoration(labelText: 'Email'),
+                    validator: (value) => viewModel.validateEmail(value),
+                    onSaved: (value) => email = _emailController.text,
                   ),
-                TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(labelText: 'Email'),
-                  validator: (value) => viewModel.validateEmail(value),
-                  onSaved: (value) => email = _emailController.text,
-                ),
-                TextFormField(
-                  controller: _passwordController,
-                  decoration: InputDecoration(labelText: 'Password'),
-                  obscureText: true,
-                  validator: (value) => viewModel.validatePassword(value),
-                  onSaved: (value) => password = _passwordController.text,
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    if (!_formKey.currentState!.validate()) return;
-                    _formKey.currentState!.save();
-                    if (isLogin) {
-                      viewModel.logInWithEmail(email!, password!);
-                    } else {
-                      viewModel.signUpWithEmail(email!, password!, username!);
-                    }
-                  },
-                  child: Text(isLogin ? 'Login' : 'Sign Up'),
-                ),
-                SizedBox(height: 20),
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: Colors.grey),
+                  TextFormField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(labelText: 'Password'),
+                    obscureText: true,
+                    validator: (value) => viewModel.validatePassword(value),
+                    onSaved: (value) => password = _passwordController.text,
                   ),
-                  child: InkWell(
-                    onTap: () {
-                      viewModel.loginWithGoogle();
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (!_formKey.currentState!.validate()) return;
+                      _formKey.currentState!.save();
+                      if (isLogin) {
+                        viewModel.logInWithEmail(email!, password!);
+                      } else {
+                        viewModel.signUpWithEmail(email!, password!, username!);
+                      }
                     },
-                    child: Row(
-                      children: [
-                        Image.asset('assets/images/google.png', height: 30),
-                        Text('Continue with Facebook'),
-                      ],
+                    child: Text(isLogin ? 'Login' : 'Sign Up'),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        viewModel.loginWithGoogle();
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/google.png', height: 30),
+                          SizedBox(width: 10),
+                          Text('Continue with Facebook'),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                TextButton(
-                  onPressed: () => setState(() => isLogin = !isLogin),
-                  child: Text(
-                    isLogin
-                        ? "Don't have an account? Sign Up."
-                        : 'Already have an account? Login.',
+                  TextButton(
+                    onPressed: () => setState(() => isLogin = !isLogin),
+                    child: Text(
+                      isLogin
+                          ? "Don't have an account? Sign Up."
+                          : 'Already have an account? Login.',
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
