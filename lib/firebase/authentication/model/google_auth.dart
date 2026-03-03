@@ -130,8 +130,7 @@ class GoogleAuth {
     final authClient = _googleSignIn.authorizationClient;
     final authorization = await authClient.authorizationForScopes(['email']);
 
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
+    final GoogleSignInAuthentication googleAuth = googleUser.authentication;
 
     final credential = GoogleAuthProvider.credential(
       accessToken: authorization?.accessToken,

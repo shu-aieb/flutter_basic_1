@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-// 1. DATA MODEL
 class SpendingCategory {
   final String name;
   final double amount;
@@ -61,9 +60,12 @@ class _CustomPainterPageState extends State<CustomPainterPage>
     double totalSpent = data.fold(0, (sum, item) => sum + item.amount);
 
     return Scaffold(
-      backgroundColor: Color(0xFF1E1E2C), // Dark Mode Theme
+      backgroundColor: Color(0xFF1E1E2C),
       appBar: AppBar(
-        title: Text("Custom Paint & Math"),
+        title: Text(
+          "Custom Paint Animation",
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
@@ -175,7 +177,6 @@ class RingChartPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // Basic setup
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 2, size.height / 2);
     double strokeWidth = 20.0;

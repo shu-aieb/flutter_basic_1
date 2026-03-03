@@ -29,18 +29,18 @@ class HeroAnimationPage extends StatefulWidget {
 class _HeroAnimationPageState extends State<HeroAnimationPage> {
   // Dummy Data
   final List<Product> products = [
-    Product(
-      "1",
-      "Organic Avocado",
-      "https://cdn.pixabay.com/photo/2020/05/29/18/16/avocado-5236857_1280.jpg",
-      4.99,
-      Colors.green,
-      "Rich, creamy, and packed with healthy fats.",
-    ),
+    // Product(
+    //   "1",
+    //   "Organic Avocado",
+    //   "https://cdn.pixabay.com/photo/2024/01/09/22/11/avocado-8498520_1280.jpg",
+    //   4.99,
+    //   Colors.green,
+    //   "Rich, creamy, and packed with healthy fats.",
+    // ),
     Product(
       "2",
       "Sweet Strawberry",
-      "https://cdn.pixabay.com/photo/2021/09/23/05/30/strawberry-6648863_1280.jpg",
+      "assets/images/strawberry.jpg",
       3.50,
       Colors.redAccent,
       "Freshly picked, sweet and juicy red strawberries.",
@@ -48,19 +48,19 @@ class _HeroAnimationPageState extends State<HeroAnimationPage> {
     Product(
       "3",
       "Premium Banana",
-      "https://cdn.pixabay.com/photo/2016/09/06/20/47/banana-1649969_1280.jpg",
+      "assets/images/banana.jpg",
       1.20,
       Colors.amber,
       "High energy snack rich in potassium.",
     ),
-    Product(
-      "4",
-      "Fresh Orange",
-      "https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_1280.jpg",
-      2.10,
-      Colors.orange,
-      "Bursting with Vitamin C and citrus flavor.",
-    ),
+    // Product(
+    //   "4",
+    //   "Fresh Orange",
+    //   "https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_1280.jpg",
+    //   2.10,
+    //   Colors.orange,
+    //   "Bursting with Vitamin C and citrus flavor.",
+    // ),
   ];
 
   bool _isSlowMotion = false;
@@ -72,31 +72,30 @@ class _HeroAnimationPageState extends State<HeroAnimationPage> {
       appBar: AppBar(title: Text("Hero Animation Market")),
       body: Column(
         children: [
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Slow Motion Mode (Demo)",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Switch(
-                  value: _isSlowMotion,
-                  activeColor: Colors.purple,
-                  onChanged: (val) {
-                    setState(() {
-                      _isSlowMotion = val;
-                      // 5.0 means 5x slower than normal
-                      timeDilation = val ? 5.0 : 1.0;
-                    });
-                  },
-                ),
-              ],
-            ),
-          ),
-
+          // Container(
+          //   color: Colors.white,
+          //   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Text(
+          //         "Slow Motion Mode (Demo)",
+          //         style: TextStyle(fontWeight: FontWeight.bold),
+          //       ),
+          //       Switch(
+          //         value: _isSlowMotion,
+          //         activeColor: Colors.purple,
+          //         onChanged: (val) {
+          //           setState(() {
+          //             _isSlowMotion = val;
+          //             // 5.0 means 5x slower than normal
+          //             timeDilation = val ? 5.0 : 1.0;
+          //           });
+          //         },
+          //       ),
+          //     ],
+          //   ),
+          // ),
           Expanded(
             child: GridView.builder(
               padding: EdgeInsets.all(20),
@@ -142,7 +141,7 @@ class _HeroAnimationPageState extends State<HeroAnimationPage> {
                               borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20),
                               ),
-                              child: Image.network(
+                              child: Image.asset(
                                 product.image,
                                 fit: BoxFit.cover,
                               ),
@@ -191,8 +190,12 @@ class ProductDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final lightBG = Color.lerp(Colors.white, product.color, 0.1)!;
+
+    final bg = Color.lerp(Colors.lightBlue, Colors.lightBlueAccent, 0.1);
     return Scaffold(
-      backgroundColor: product.color.withValues(alpha: 0.1),
+      backgroundColor: lightBG,
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -200,72 +203,80 @@ class ProductDetailPage extends StatelessWidget {
       ),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Hero(
-              tag: product.id,
-              child: Container(
-                height: 350,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(50),
+        child: Container(
+          color: lightBG,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Hero(
+                tag: product.id,
+                child: Container(
+                  height: 350,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: product.color.withValues(alpha: 0.5),
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(50),
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage(product.image),
+                      fit: BoxFit.cover,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 20,
+                        offset: Offset(0, 10),
+                      ),
+                    ],
                   ),
-                  image: DecorationImage(
-                    image: NetworkImage(product.image),
-                    fit: BoxFit.cover,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 20,
-                      offset: Offset(0, 10),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(25.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      product.name,
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "\$${product.price}",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green[700],
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      "Description",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      product.description * 3,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[700],
+                        height: 1.5,
+                      ),
                     ),
                   ],
                 ),
               ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    product.name,
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "\$${product.price}",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green[700],
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    "Description",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    product.description * 3,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[700],
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(

@@ -99,7 +99,7 @@ class HomePage extends StatelessWidget {
       ],
     ),
     Section(
-      title: 'Animaiton',
+      title: 'Animation',
       topics: [
         Topic(
           title: 'Implicit Animation',
@@ -116,11 +116,11 @@ class HomePage extends StatelessWidget {
           subTitle: 'Page',
           pageRoute: PageAddress.HERO_ANIMATION,
         ),
-        Topic(
-          title: 'Custom Animation',
-          subTitle: 'Page',
-          pageRoute: PageAddress.CUSTOM_ANIMATION,
-        ),
+        // Topic(
+        //   title: 'Custom Animation',
+        //   subTitle: 'Page',
+        //   pageRoute: PageAddress.CUSTOM_ANIMATION,
+        // ),
       ],
     ),
     Section(

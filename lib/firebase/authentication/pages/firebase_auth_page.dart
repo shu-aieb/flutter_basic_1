@@ -98,14 +98,15 @@ class _FirebaseAuthPageState extends State<FirebaseAuthPage> {
                       border: Border.all(color: Colors.grey),
                     ),
                     child: InkWell(
-                      onTap: () {
-                        viewModel.loginWithGoogle();
+                      onTap: () async {
+                        await viewModel.logOut();
+                        await viewModel.loginWithGoogle();
                       },
                       child: Row(
                         children: [
                           Image.asset('assets/images/google.png', height: 30),
                           SizedBox(width: 10),
-                          Text('Continue with Facebook'),
+                          Text('Continue with Google'),
                         ],
                       ),
                     ),

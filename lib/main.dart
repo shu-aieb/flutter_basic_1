@@ -38,6 +38,16 @@ ios       1:941317230359:ios:dd73ca84b6fc00d2fbf152
 macos     1:941317230359:ios:dd73ca84b6fc00d2fbf152
 windows   1:941317230359:web:16305c4b69659ac1fbf152
  */
+//
+// > Task :sqflite_android:signingReport
+// Variant: debugAndroidTest
+// Config: debug
+// Store: C:\Users\ORANGEBD\.android\debug.keystore
+// Alias: AndroidDebugKey
+// MD5: 6E:68:44:CD:0E:25:1A:B4:70:55:1F:C1:C2:56:8B:56
+// SHA1: F7:F4:4E:A0:7E:C2:85:7F:4F:7F:3F:45:9A:11:1A:36:0C:40:7D:E2
+// SHA-256: A0:53:2A:24:7E:DB:DD:FD:86:9A:25:69:6A:18:38:AC:04:23:A7:62:B0:33:81:E0:78:FE:D8:A9:A7:D8:75:22
+// Valid until: Friday, November 26, 2055
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
