@@ -23,7 +23,7 @@ class GoogleAuth {
     }
   }
 
-  /// Always check Google sign in initialization before use
+  // Always check Google sign in initialization before use
   Future<void> _ensureGoogleSignInInitialized() async {
     if (!_isGoogleSignInInitialized) {
       await _initializeGoogleSignIn();

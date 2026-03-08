@@ -168,6 +168,41 @@ class HomePage extends StatelessWidget {
         // ),
       ],
     ),
+    Section(
+      title: 'Layout',
+      topics: [
+        Topic(
+          title: 'Grid Layout',
+          subTitle: 'Page',
+          pageRoute: PageAddress.LAYOUT_GRIDVIEW,
+        ),
+      ],
+    ),
+    Section(
+      title: 'Navigation',
+      topics: [
+        Topic(
+          title: 'Navigation Drawer',
+          subTitle: 'Page',
+          pageRoute: PageAddress.NAVIGATION_DRAWER,
+        ),
+        Topic(
+          title: 'Bottom Navigation',
+          subTitle: 'Page',
+          pageRoute: PageAddress.BOTTOM_NAVIGATION_BAR,
+        ),
+      ],
+    ),
+    Section(
+      title: 'Device Features',
+      topics: [
+        Topic(
+          title: 'Camera',
+          subTitle: 'Page',
+          pageRoute: PageAddress.CAMERA_PAGE,
+        ),
+      ],
+    ),
   ];
 
   @override
@@ -207,43 +242,40 @@ class HomePage extends StatelessWidget {
             ),
 
             SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return ListTile(
-                    onTap: () {
-                      if (section.topics[index].pageRoute != null) {
-                        Navigator.pushNamed(
-                          context,
-                          section.topics[index].pageRoute!,
-                        );
-                      }
-                    },
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return ListTile(
+                  onTap: () {
+                    if (section.topics[index].pageRoute != null) {
+                      Navigator.pushNamed(
+                        context,
+                        section.topics[index].pageRoute!,
+                      );
+                    }
+                  },
 
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  title: Text(
+                    section.topics[index].title,
+                    style: GoogleFonts.deliusSwashCaps(
+                      color: Colors.blue.shade800,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 16,
                     ),
-                    title: Text(
-                      section.topics[index].title,
-                      style: GoogleFonts.deliusSwashCaps(
-                        color: Colors.blue.shade800,
-                        fontWeight: FontWeight.w900,
-                        fontSize: 16,
-                      ),
+                  ),
+                  subtitle: Text(
+                    'Type : ${section.topics[index].subTitle}',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                      fontSize: 12,
                     ),
-                    subtitle: Text(
-                      'Type : ${section.topics[index].subTitle}',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w400,
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
-                    trailing: Icon(Icons.forward, color: Colors.orange),
-                  );
-                },
-                childCount: section.topics.length, // Long list
-              ),
+                  ),
+                  trailing: Icon(Icons.forward, color: Colors.orange),
+                );
+              }, childCount: section.topics.length),
             ),
           ],
         ],

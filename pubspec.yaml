@@ -46,7 +46,7 @@ dependencies:
   get: ^4.7.3
   firebase_database: ^12.1.3
   firebase_storage:
-  image_picker:
+  image_picker: ^1.2.1
   firebase_messaging: ^16.1.1
   firebase_app_installations: ^0.4.0+6
   google_sign_in: ^7.2.0

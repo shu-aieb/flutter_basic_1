@@ -5,6 +5,7 @@ import 'package:flutter_basics_1/firebase/push_notification/pages/notification_p
 import 'package:flutter_basics_1/firebase/realtime_database/page/auction_screen.dart';
 import 'package:flutter_basics_1/firebase/wrapper.dart';
 import 'package:flutter_basics_1/home/home.dart';
+import 'package:flutter_basics_1/navigation/bottom_navigation.dart';
 import 'package:flutter_basics_1/pages/animations/explicit_animation_page.dart';
 import 'package:flutter_basics_1/pages/animations/implicit_animations_page.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_basics_1/pages/basic_widget_1.dart';
 import 'package:flutter_basics_1/pages/basic_widget_3.dart';
 import 'package:flutter_basics_1/pages/basic_widget_4.dart';
 import 'package:flutter_basics_1/pages/form_and_validation/complete/personal_info_screen.dart';
+import 'package:flutter_basics_1/pages/layout/gridview.dart';
 import 'package:flutter_basics_1/pages/layout_styling/all_buttons_page.dart';
 import 'package:flutter_basics_1/pages/layout_styling/box_decoration_ui_page.dart';
 import 'package:flutter_basics_1/pages/layout_styling/font_textstyle.dart';
@@ -23,9 +25,11 @@ import 'package:flutter_basics_1/routes/page_address.dart';
 import 'package:flutter_basics_1/sqflite_note_app/screens/notes_screen.dart';
 import 'package:path/path.dart';
 
+import '../navigation/navigation_drawer.dart';
 import '../pages/animations/custom_animation.dart';
 import '../pages/animations/hero_animations.dart';
 import '../pages/code_quality/reusable_widget/reusable_widget_page.dart';
+import '../pages/device_features/camera_page.dart';
 import '../pages/selection_controlls.dart';
 
 class PageRoutes {
@@ -56,5 +60,11 @@ class PageRoutes {
     PageAddress.IMPLICIT_ANIMATION: (context) => ImplicitAnimationsPage(),
     PageAddress.CUSTOM_ANIMATION: (context) => CustomPainterPage(),
     PageAddress.HERO_ANIMATION: (context) => HeroAnimationPage(),
+
+    PageAddress.LAYOUT_GRIDVIEW: (context) => const GridViewPage(),
+    PageAddress.NAVIGATION_DRAWER: (context) => NavigationDrawerPage(),
+    PageAddress.BOTTOM_NAVIGATION_BAR: (context) => BottomNavigationPage(),
+
+    PageAddress.CAMERA_PAGE: (context) => CameraPage(),
   };
 }

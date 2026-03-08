@@ -25,4 +25,12 @@ class PageAddress {
   static const String REUSABLE_WIDGET_PAGE = '/reusable_widget_page';
   static const String CLOUD_STORAGE = '/cloud_storage';
   static const String NOTIFICATION = '/notification';
+
+  static const String LAYOUT_GRIDVIEW = '/layout_gridview';
+  static const String LAYOUT_LISTVIEW = '/layout_listview';
+  static const String NAVIGATION_DRAWER = '/navigation_drawer';
+  static const String BOTTOM_NAVIGATION_BAR = '/bottom_navigation_bar';
+
+  static const String CAMERA_PAGE = '/camera';
+  static const String GALLERY = '/gallery';
 }
