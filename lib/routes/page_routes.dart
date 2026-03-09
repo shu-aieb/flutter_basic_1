@@ -12,6 +12,7 @@ import 'package:flutter_basics_1/pages/basic_widget2.dart';
 import 'package:flutter_basics_1/pages/basic_widget_1.dart';
 import 'package:flutter_basics_1/pages/basic_widget_3.dart';
 import 'package:flutter_basics_1/pages/basic_widget_4.dart';
+import 'package:flutter_basics_1/pages/device_features/file_picker/file_upload_page.dart';
 import 'package:flutter_basics_1/pages/form_and_validation/complete/personal_info_screen.dart';
 import 'package:flutter_basics_1/pages/layout/gridview.dart';
 import 'package:flutter_basics_1/pages/layout_styling/all_buttons_page.dart';
@@ -66,5 +67,6 @@ class PageRoutes {
     PageAddress.BOTTOM_NAVIGATION_BAR: (context) => BottomNavigationPage(),
 
     PageAddress.CAMERA_PAGE: (context) => CameraPage(),
+    PageAddress.FILE_UPLOAD: (context) => FileUploadPage(),
   };
 }

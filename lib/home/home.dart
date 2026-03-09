@@ -201,6 +201,11 @@ class HomePage extends StatelessWidget {
           subTitle: 'Page',
           pageRoute: PageAddress.CAMERA_PAGE,
         ),
+        Topic(
+          title: 'File Upload',
+          subTitle: 'Page',
+          pageRoute: PageAddress.FILE_UPLOAD,
+        ),
       ],
     ),
   ];

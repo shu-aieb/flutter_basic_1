@@ -33,4 +33,5 @@ class PageAddress {
 
   static const String CAMERA_PAGE = '/camera';
   static const String GALLERY = '/gallery';
+  static const String FILE_UPLOAD = '/file_upload';
 }
