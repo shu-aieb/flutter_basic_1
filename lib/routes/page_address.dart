@@ -34,4 +34,6 @@ class PageAddress {
   static const String CAMERA_PAGE = '/camera';
   static const String GALLERY = '/gallery';
   static const String FILE_UPLOAD = '/file_upload';
+  static const String BACKGROUND_SERVICE = '/background_service';
+  static const String WORK_MANAGER = '/work_manager';
 }

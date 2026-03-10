@@ -197,7 +197,7 @@ class HomePage extends StatelessWidget {
       title: 'Device Features',
       topics: [
         Topic(
-          title: 'Camera',
+          title: 'Camera & Choose from Gallery',
           subTitle: 'Page',
           pageRoute: PageAddress.CAMERA_PAGE,
         ),
@@ -205,6 +205,21 @@ class HomePage extends StatelessWidget {
           title: 'File Upload',
           subTitle: 'Page',
           pageRoute: PageAddress.FILE_UPLOAD,
+        ),
+      ],
+    ),
+    Section(
+      title: 'Background Tasks',
+      topics: [
+        Topic(
+          title: 'Background Service',
+          subTitle: 'Page',
+          pageRoute: PageAddress.BACKGROUND_SERVICE,
+        ),
+        Topic(
+          title: 'WorkManager',
+          subTitle: 'Page',
+          pageRoute: PageAddress.WORK_MANAGER,
         ),
       ],
     ),

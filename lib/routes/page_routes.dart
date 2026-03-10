@@ -8,6 +8,8 @@ import 'package:flutter_basics_1/home/home.dart';
 import 'package:flutter_basics_1/navigation/bottom_navigation.dart';
 import 'package:flutter_basics_1/pages/animations/explicit_animation_page.dart';
 import 'package:flutter_basics_1/pages/animations/implicit_animations_page.dart';
+import 'package:flutter_basics_1/pages/background_tasks/background_service_page.dart';
+import 'package:flutter_basics_1/pages/background_tasks/work_manager_page.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
 import 'package:flutter_basics_1/pages/basic_widget_1.dart';
 import 'package:flutter_basics_1/pages/basic_widget_3.dart';
@@ -68,5 +70,7 @@ class PageRoutes {
 
     PageAddress.CAMERA_PAGE: (context) => CameraPage(),
     PageAddress.FILE_UPLOAD: (context) => FileUploadPage(),
+    PageAddress.BACKGROUND_SERVICE: (context) => BackgroundServicePage(),
+    PageAddress.WORK_MANAGER: (context) => WorkManagerPage(),
   };
 }

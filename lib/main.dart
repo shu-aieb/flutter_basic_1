@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_basics_1/firebase/push_notification/firebase_push_api.dart';
 import 'package:flutter_basics_1/firebase_options.dart';
 import 'package:flutter_basics_1/pages/advanced_layout/custom_scroll/custom_scroll_show_case.dart';
@@ -8,6 +12,8 @@ import 'package:flutter_basics_1/pages/advanced_layout/sliver_mastery.dart';
 import 'package:flutter_basics_1/pages/animations/explecit_animation.dart';
 import 'package:flutter_basics_1/pages/animations/implecit_animation.dart';
 import 'package:flutter_basics_1/pages/animations/implicit_animations_page.dart';
+import 'package:flutter_basics_1/pages/background_tasks/notification_helper.dart';
+import 'package:flutter_basics_1/pages/background_tasks/work_manager_page.dart';
 import 'package:flutter_basics_1/pages/basic_widget2.dart';
 import 'package:flutter_basics_1/pages/basic_widget_1.dart';
 import 'package:flutter_basics_1/pages/basic_widget_3.dart';
@@ -29,6 +35,9 @@ import 'package:flutter_basics_1/widgets/button_and_icon.dart';
 import 'package:flutter_basics_1/widgets/containers_and_padding.dart';
 import 'package:flutter_basics_1/widgets/rows.dart';
 import 'package:flutter_basics_1/widgets/stateful_test.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
+import 'package:workmanager/workmanager.dart';
 
 /*
 Platform  Firebase App Id
@@ -51,8 +60,63 @@ windows   1:941317230359:web:16305c4b69659ac1fbf152
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
+@pragma('vm:entry-point')
+Future<void> onStart(ServiceInstance service) async {
+  DartPluginRegistrant.ensureInitialized();
+  for (int i = 1; i <= 100; i++) {
+    await NotificationHelper.show(progress: i);
+    await Future.delayed(Duration(seconds: 1));
+  }
+  service.stopSelf();
+}
+
+@pragma('vm:entry-point')
+void callbackDispatcher() {
+  Workmanager().executeTask((task, inputData) async {
+    // Download File
+    if (task == WorkManagerPage.DOWNLOADTASK) {
+      print('Download Task');
+      await NotificationHelper.show(progress: null);
+    }
+    // Upload file
+    if (task == WorkManagerPage.UPLOADTASK) {
+      print('Upload Task');
+      await NotificationHelper.show(progress: null);
+    }
+    return Future.value(true);
+  });
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // --- Work Manager --->>>
+  Workmanager().initialize(callbackDispatcher);
+
+  // --- Background Service --->>>
+  await NotificationHelper.initialize();
+  AndroidNotificationChannel andChannel = AndroidNotificationChannel(
+    'download_channel',
+    'Download Channel',
+  );
+  await FlutterLocalNotificationsPlugin()
+      .resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin
+      >()
+      ?.createNotificationChannel(andChannel);
+
+  FlutterBackgroundService().configure(
+    iosConfiguration: IosConfiguration(),
+    androidConfiguration: AndroidConfiguration(
+      onStart: onStart,
+      isForegroundMode: true,
+      autoStart: false,
+      autoStartOnBoot: false,
+      notificationChannelId: 'download_channel',
+      foregroundServiceNotificationId: 11,
+    ),
+  );
+  // <<<--- Background Service ---
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await FirebasePushApi().initNotification();
 

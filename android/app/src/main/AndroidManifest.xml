@@ -3,6 +3,9 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
     <application
         android:label="flutter_basics_1"
         android:name="${applicationName}"
