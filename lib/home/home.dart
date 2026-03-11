@@ -223,6 +223,16 @@ class HomePage extends StatelessWidget {
         ),
       ],
     ),
+    Section(
+      title: 'WebView & Maps',
+      topics: [
+        Topic(
+          title: 'WebView',
+          subTitle: 'Page',
+          pageRoute: PageAddress.WEBVIEW_PAGE,
+        ),
+      ],
+    ),
   ];
 
   @override

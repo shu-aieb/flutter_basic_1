@@ -34,6 +34,7 @@ import '../pages/animations/hero_animations.dart';
 import '../pages/code_quality/reusable_widget/reusable_widget_page.dart';
 import '../pages/device_features/camera_page.dart';
 import '../pages/selection_controlls.dart';
+import '../pages/webview_and_maps/webview_page.dart';
 
 class PageRoutes {
   static Map<String, WidgetBuilder> routes = {
@@ -72,5 +73,7 @@ class PageRoutes {
     PageAddress.FILE_UPLOAD: (context) => FileUploadPage(),
     PageAddress.BACKGROUND_SERVICE: (context) => BackgroundServicePage(),
     PageAddress.WORK_MANAGER: (context) => WorkManagerPage(),
+
+    PageAddress.WEBVIEW_PAGE: (context) => WebviewPage(),
   };
 }

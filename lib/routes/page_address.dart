@@ -36,4 +36,5 @@ class PageAddress {
   static const String FILE_UPLOAD = '/file_upload';
   static const String BACKGROUND_SERVICE = '/background_service';
   static const String WORK_MANAGER = '/work_manager';
+  static const String WEBVIEW_PAGE = '/webview_page';
 }
