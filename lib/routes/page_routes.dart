@@ -16,6 +16,7 @@ import 'package:flutter_basics_1/pages/basic_widget_3.dart';
 import 'package:flutter_basics_1/pages/basic_widget_4.dart';
 import 'package:flutter_basics_1/pages/device_features/file_picker/file_upload_page.dart';
 import 'package:flutter_basics_1/pages/form_and_validation/complete/personal_info_screen.dart';
+import 'package:flutter_basics_1/pages/google_maps/google_maps_page.dart';
 import 'package:flutter_basics_1/pages/layout/gridview.dart';
 import 'package:flutter_basics_1/pages/layout_styling/all_buttons_page.dart';
 import 'package:flutter_basics_1/pages/layout_styling/box_decoration_ui_page.dart';
@@ -33,6 +34,7 @@ import '../pages/animations/custom_animation.dart';
 import '../pages/animations/hero_animations.dart';
 import '../pages/code_quality/reusable_widget/reusable_widget_page.dart';
 import '../pages/device_features/camera_page.dart';
+import '../pages/google_maps/google_map_live_location.dart';
 import '../pages/selection_controlls.dart';
 import '../pages/webview_and_maps/webview_page.dart';
 
@@ -75,5 +77,8 @@ class PageRoutes {
     PageAddress.WORK_MANAGER: (context) => WorkManagerPage(),
 
     PageAddress.WEBVIEW_PAGE: (context) => WebviewPage(),
+    PageAddress.GOOGLE_MAP_PAGE: (context) => GoogleMapsPage(),
+
+    PageAddress.GOOGLE_MAPS_LIVE_LOCATION: (context) => GoogleMapLiveLocation(),
   };
 }

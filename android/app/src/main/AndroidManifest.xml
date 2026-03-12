@@ -53,6 +53,9 @@
             android:name="firebase_messaging_auto_init_enabled"
             android:value="false" />
 
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDO_va78vhAgJK7sSAIA3N_oYCzXkIuv4o"/>
+
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

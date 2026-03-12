@@ -231,6 +231,16 @@ class HomePage extends StatelessWidget {
           subTitle: 'Page',
           pageRoute: PageAddress.WEBVIEW_PAGE,
         ),
+        Topic(
+          title: 'Google Maps',
+          subTitle: 'Page',
+          pageRoute: PageAddress.GOOGLE_MAP_PAGE,
+        ),
+        Topic(
+          title: 'Google Maps Live Location',
+          subTitle: 'Page',
+          pageRoute: PageAddress.GOOGLE_MAPS_LIVE_LOCATION,
+        ),
       ],
     ),
   ];

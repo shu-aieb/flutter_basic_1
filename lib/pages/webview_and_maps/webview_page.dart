@@ -9,6 +9,8 @@ class WebviewPage extends StatefulWidget {
   State<WebviewPage> createState() => _WebviewPageState();
 }
 
+// Resource : https://rugvedapraj.medium.com/the-ultimate-flutter-webview-guide-scroll-js-and-navigation-explained-4ec40621adc5
+
 class _WebviewPageState extends State<WebviewPage> {
   /// This  [_controller] will manage everything inside our WebView:
   /// loading URLs, executing JavaScript, refreshing pages, etc.

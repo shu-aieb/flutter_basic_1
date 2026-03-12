@@ -37,4 +37,7 @@ class PageAddress {
   static const String BACKGROUND_SERVICE = '/background_service';
   static const String WORK_MANAGER = '/work_manager';
   static const String WEBVIEW_PAGE = '/webview_page';
+
+  static const String GOOGLE_MAP_PAGE = '/google_map_page';
+  static const String GOOGLE_MAPS_LIVE_LOCATION = '/google_maps_live_location';
 }
